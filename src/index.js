@@ -16,11 +16,7 @@ function handleClick(e) {
     .getElementById(e.target.id)
     .removeEventListener("click", handleClick);
 }
-/*function removeClick(e) {
-  if(document.getElementById(e.target.id).innerHTML = player1 || player2) {
-    
-  }
-} */
+
 var count = 0;
 
 var board = document.querySelectorAll(".board");
