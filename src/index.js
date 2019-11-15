@@ -2,6 +2,28 @@ import "./styles.css";
 
 var player1 = "O";
 var player2 = "X";
+var array = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6]
+];
+function winCond() {
+  /* var zero = document.getElementById("0");
+  var one = document.getElementById("1");
+  var two = document.getElementById("2");
+  if (
+    zero.innerHTML === one.innerHTML &&
+    zero.innerHTML === two.innerHTML &&
+    one.innerHTML === two.innerHTML
+  ) {
+    console.log("hello");
+  } */
+}
 
 function handleClick(e) {
   console.log(count);
@@ -15,6 +37,7 @@ function handleClick(e) {
   document
     .getElementById(e.target.id)
     .removeEventListener("click", handleClick);
+  winCond();
 }
 
 var count = 0;
@@ -22,26 +45,4 @@ var count = 0;
 var board = document.querySelectorAll(".board");
 for (let i = 0; i < board.length; i++) {
   board[i].addEventListener("click", handleClick);
-
-  /*board[i].addEventListener("click", function() {
-    board[i].innerHTML = player1;
-    if (board[i].innerHTML === player1) {
-      count++;
-      console.log(count);
-    }
-    if (count % 2 === 0) {
-      board[i].innerHTML = player2;
-    }
-  });/*
-
-  /* board[i].onclick = function() {
-    board[i].innerHTML = player1;
-     if (board[i].innerHTML === player1) {
-      count++;
-      console.log(count);
-    }
-    if (count % 2 === 0) {
-      board[i].innerHTML = player2;
-    } 
-  }; */
 }
