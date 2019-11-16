@@ -2,7 +2,7 @@ import "./styles.css";
 
 var player1 = "O";
 var player2 = "X";
-var array = [
+var arrayWin = [
   [0, 1, 2],
   [3, 4, 5],
   [6, 7, 8],
@@ -12,7 +12,22 @@ var array = [
   [0, 4, 8],
   [2, 4, 6]
 ];
+
+var zero = document.getElementById("0");
+var one = document.getElementById("1");
+var two = document.getElementById("2");
+var three = document.getElementById("3").innerHTML;
+var four = document.getElementById("4").innerHTML;
+var five = document.getElementById("5").innerHTML;
+var six = document.getElementById("6").innerHTML;
+var seven = document.getElementById("7").innerHTML;
+var eight = document.getElementById("8").innerHTML;
+
 function winCond() {
+  if (zero) {
+    console.log(one.innerHTML);
+  }
+
   /* var zero = document.getElementById("0");
   var one = document.getElementById("1");
   var two = document.getElementById("2");
@@ -30,14 +45,16 @@ function handleClick(e) {
   document.getElementById(e.target.id).innerHTML = player1;
   if (player1) {
     count++;
+
+    winCond();
   }
   if (count % 2 === 0) {
     document.getElementById(e.target.id).innerHTML = player2;
   }
+
   document
     .getElementById(e.target.id)
     .removeEventListener("click", handleClick);
-  winCond();
 }
 
 var count = 0;
