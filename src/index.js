@@ -16,17 +16,29 @@ var arrayWin = [
 var zero = document.getElementById("0");
 var one = document.getElementById("1");
 var two = document.getElementById("2");
-var three = document.getElementById("3").innerHTML;
-var four = document.getElementById("4").innerHTML;
-var five = document.getElementById("5").innerHTML;
-var six = document.getElementById("6").innerHTML;
-var seven = document.getElementById("7").innerHTML;
-var eight = document.getElementById("8").innerHTML;
+var three = document.getElementById("3");
+var four = document.getElementById("4");
+var five = document.getElementById("5");
+var six = document.getElementById("6");
+var seven = document.getElementById("7");
+var eight = document.getElementById("8");
 
+var EachWin = [zero, one, two, three, four, five, six, seven, eight];
 function winCond() {
-  if (zero) {
-    console.log(one.innerHTML);
-  }
+  arrayWin.forEach(path => {
+    let match = path.filter(id => {
+      let tile = EachWin[id];
+
+      if (tile.textContent === player1) {
+        return true;
+      } else {
+        return false;
+      }
+    }).length;
+    if (match === 3) {
+      console.log("hello");
+    }
+  });
 
   /* var zero = document.getElementById("0");
   var one = document.getElementById("1");
