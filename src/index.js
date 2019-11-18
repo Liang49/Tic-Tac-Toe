@@ -29,27 +29,17 @@ function winCond() {
     let match = path.filter(id => {
       let tile = EachWin[id];
 
-      if (tile.textContent === player1) {
+      if (tile.innerHTML === player1) {
         return true;
       } else {
         return false;
       }
     }).length;
+
     if (match === 3) {
       console.log("hello");
     }
   });
-
-  /* var zero = document.getElementById("0");
-  var one = document.getElementById("1");
-  var two = document.getElementById("2");
-  if (
-    zero.innerHTML === one.innerHTML &&
-    zero.innerHTML === two.innerHTML &&
-    one.innerHTML === two.innerHTML
-  ) {
-    console.log("hello");
-  } */
 }
 
 function handleClick(e) {
@@ -57,8 +47,6 @@ function handleClick(e) {
   document.getElementById(e.target.id).innerHTML = player1;
   if (player1) {
     count++;
-
-    winCond();
   }
   if (count % 2 === 0) {
     document.getElementById(e.target.id).innerHTML = player2;
@@ -67,6 +55,8 @@ function handleClick(e) {
   document
     .getElementById(e.target.id)
     .removeEventListener("click", handleClick);
+
+  winCond();
 }
 
 var count = 0;
