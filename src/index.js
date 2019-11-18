@@ -24,12 +24,12 @@ var seven = document.getElementById("7");
 var eight = document.getElementById("8");
 
 var EachWin = [zero, one, two, three, four, five, six, seven, eight];
-function winCond() {
+function winCond(player) {
   arrayWin.forEach(path => {
     let match = path.filter(id => {
       let tile = EachWin[id];
 
-      if (tile.innerHTML === player1) {
+      if (tile.innerHTML === player) {
         return true;
       } else {
         return false;
@@ -44,19 +44,21 @@ function winCond() {
 
 function handleClick(e) {
   console.log(count);
+
   document.getElementById(e.target.id).innerHTML = player1;
+
   if (player1) {
     count++;
+    winCond(player1);
   }
   if (count % 2 === 0) {
     document.getElementById(e.target.id).innerHTML = player2;
+    winCond(player2);
   }
 
   document
     .getElementById(e.target.id)
     .removeEventListener("click", handleClick);
-
-  winCond();
 }
 
 var count = 0;
