@@ -9,3 +9,9 @@ td {
   font-size: 70px;
   text-align: center;
 }
+
+#app {
+  width: 112px;
+  height: 47px;
+  border-bottom: 1px solid black;
+}

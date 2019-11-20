@@ -1,7 +1,7 @@
 import "./styles.css";
 
 var player1 = "O";
-var player2 = "X";
+var gameOver = true;
 var arrayWin = [
   [0, 1, 2],
   [3, 4, 5],
@@ -22,6 +22,7 @@ var five = document.getElementById("5");
 var six = document.getElementById("6");
 var seven = document.getElementById("7");
 var eight = document.getElementById("8");
+var line = (document.getElementById("app").style.display = "none");
 
 var EachWin = [zero, one, two, three, four, five, six, seven, eight];
 function winCond(player) {
@@ -38,23 +39,35 @@ function winCond(player) {
 
     if (match === 3) {
       console.log("hello");
+      gameOver = false;
     }
   });
 }
-
+function drawLine() {
+  var line = document.getElementById("app");
+}
 function handleClick(e) {
   console.log(count);
-
-  document.getElementById(e.target.id).innerHTML = player1;
+  if (gameOver === true) {
+    document.getElementById(e.target.id).innerHTML = player1;
+  }
+  winCond(player1);
 
   if (player1) {
     count++;
-    winCond(player1);
+    player1 = "X";
+  }
+
+  if (count % 2 === 0) {
+    player1 = "O";
+  }
+  /*document.getElementById(e.target.id).innerHTML = player1;
+  if (player1) {
+    count++;
   }
   if (count % 2 === 0) {
     document.getElementById(e.target.id).innerHTML = player2;
-    winCond(player2);
-  }
+  } */
 
   document
     .getElementById(e.target.id)
