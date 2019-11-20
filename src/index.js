@@ -22,8 +22,17 @@ var five = document.getElementById("5");
 var six = document.getElementById("6");
 var seven = document.getElementById("7");
 var eight = document.getElementById("8");
-var line = (document.getElementById("app").style.display = "none");
+var reset = document.getElementsByClassName("reset");
+reset[0].addEventListener("click", retn);
 
+function retn(e) {
+  console.log("return");
+  gameOver = true;
+  for (let i = 0; i < 9; i++) {
+    board[i].innerHTML = "";
+    board[i].addEventListener("click", handleClick);
+  }
+}
 var EachWin = [zero, one, two, three, four, five, six, seven, eight];
 function winCond(player) {
   arrayWin.forEach(path => {
@@ -43,9 +52,11 @@ function winCond(player) {
     }
   });
 }
-function drawLine() {
-  var line = document.getElementById("app");
-}
+/*function drawLine(a, b, c) {
+  a.classList.add(a);
+  b.classList.add("win");
+  c.classList.add("win");
+} */
 function handleClick(e) {
   console.log(count);
   if (gameOver === true) {
@@ -61,13 +72,6 @@ function handleClick(e) {
   if (count % 2 === 0) {
     player1 = "O";
   }
-  /*document.getElementById(e.target.id).innerHTML = player1;
-  if (player1) {
-    count++;
-  }
-  if (count % 2 === 0) {
-    document.getElementById(e.target.id).innerHTML = player2;
-  } */
 
   document
     .getElementById(e.target.id)
