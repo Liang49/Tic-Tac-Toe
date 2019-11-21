@@ -24,6 +24,8 @@ var seven = document.getElementById("7");
 var eight = document.getElementById("8");
 var reset = document.getElementsByClassName("reset");
 reset[0].addEventListener("click", retn);
+var modal = document.getElementById("modals");
+var close = document.getElementsByClassName("close");
 
 function retn(e) {
   console.log("return");
@@ -49,6 +51,10 @@ function winCond(player) {
     if (match === 3) {
       console.log("hello");
       gameOver = false;
+      modal.style.display = "block";
+      close[0].onclick = function() {
+        modal.style.display = "none";
+      };
     }
   });
 }
