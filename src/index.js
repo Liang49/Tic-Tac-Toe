@@ -30,6 +30,7 @@ var close = document.getElementsByClassName("close");
 function retn(e) {
   console.log("return");
   gameOver = true;
+  count = 0;
   for (let i = 0; i < 9; i++) {
     board[i].innerHTML = "";
     board[i].addEventListener("click", handleClick);
@@ -55,6 +56,7 @@ function winCond(player) {
       close[0].onclick = function() {
         modal.style.display = "none";
       };
+      document.getElementById("winner").innerHTML = player;
     }
   });
 }
@@ -69,7 +71,6 @@ function handleClick(e) {
     document.getElementById(e.target.id).innerHTML = player1;
   }
   winCond(player1);
-
   if (player1) {
     count++;
     player1 = "X";
@@ -78,7 +79,16 @@ function handleClick(e) {
   if (count % 2 === 0) {
     player1 = "O";
   }
-
+  if (count === 9) {
+    modal.style.display = "block";
+    close[0].onclick = function() {
+      modal.style.display = "none";
+    };
+    document.getElementById("winner").innerHTML = "Both player loses";
+    count = 0;
+    player1 = "O";
+    gameOver = false;
+  }
   document
     .getElementById(e.target.id)
     .removeEventListener("click", handleClick);
