@@ -60,11 +60,7 @@ function winCond(player) {
     }
   });
 }
-/*function drawLine(a, b, c) {
-  a.classList.add(a);
-  b.classList.add("win");
-  c.classList.add("win");
-} */
+
 function handleClick(e) {
   console.log(count);
   if (gameOver === true) {
